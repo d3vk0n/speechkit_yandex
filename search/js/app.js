@@ -130,7 +130,7 @@ function createDownloadLink(blob, encoding) {
         //var param = base64data;
 
         //console.log(param);
-        xhr.open("POST", "https://чатналог.рф/search/search.php");
+        xhr.open("POST", "../speech.php");
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         xhr.send(param);
 

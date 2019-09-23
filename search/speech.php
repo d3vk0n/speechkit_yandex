@@ -2,13 +2,14 @@
 
  function SpeechKit($audioFileName){
     try {
+        $apiKey="";
         $file = fopen($audioFileName, 'rb');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize");
 
         curl_setopt($ch,CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Authorization: Api-Key AQVN0Ss0t5lESKu6yi9C7oTe3DLKil1pTn0AqGDG",
+            "Authorization: Api-Key ".$apiKey,
             "Transfer-Encoding: chunked",
             "Content-Type: audio/x-pcm;",
         ));
@@ -49,7 +50,7 @@ try {
          SpeechKit($audioFileName);
          //echo "File put"."<br>";
      }else{
-         echo "{\"answer\":{\"result\":\"\",\"error\":\"errors\"}}";
+         echo "{\"answer\":{\"result\":\"\",\"error\":\"error\"}}";
      }
 } catch (\ Exception $e) {
     echo "{\"answer\":{\"result\":\"\",\"error\":\"error\"}}";
